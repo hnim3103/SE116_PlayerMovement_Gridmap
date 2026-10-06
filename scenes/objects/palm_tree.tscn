@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dcf57mvultqd8"]
+
+[ext_resource type="Texture2D" uid="uid://c2ovywx26dju8" path="res://assets/sprites/palm/palm_trunk.png" id="1_myfui"]
+[ext_resource type="Texture2D" uid="uid://cqcheijxf3lgw" path="res://assets/sprites/palm/palm_top_01.png" id="2_rug60"]
+[ext_resource type="Texture2D" uid="uid://c3btwalc1b35" path="res://assets/sprites/palm/palm_top_02.png" id="3_k86xc"]
+[ext_resource type="Texture2D" uid="uid://cuc4fbvhvnvj4" path="res://assets/sprites/palm/palm_top_03.png" id="4_7dhp2"]
+[ext_resource type="Texture2D" uid="uid://baf5xva48mw6p" path="res://assets/sprites/palm/palm_top_04.png" id="5_onxqa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qbs7l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rug60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_k86xc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7dhp2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_onxqa")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rug60"]
+radius = 0.4
+
+[node name="PalmTree" type="StaticBody3D" unique_id=1871668650]
+
+[node name="Trunk" type="Sprite3D" parent="." unique_id=2119131753]
+transform = Transform3D(1, 0, 0, 0, 1.41, 0, 0, 0, 1, 0, 0, 0)
+offset = Vector2(0, 28)
+pixel_size = 0.0625
+billboard = 2
+shaded = true
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("1_myfui")
+
+[node name="Top" type="AnimatedSprite3D" parent="." unique_id=1930092868]
+transform = Transform3D(1, 0, 0, 0, 1.41, 0, 0, 0, 1, 0, 0, 0.01)
+offset = Vector2(0, 42)
+pixel_size = 0.0625
+billboard = 2
+shaded = true
+alpha_cut = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_qbs7l")
+autoplay = "default"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=15561949]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_rug60")

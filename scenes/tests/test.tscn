@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://ccj5fyaowha60"]
+
+[ext_resource type="PackedScene" uid="uid://dcf57mvultqd8" path="res://scenes/objects/palm_tree.tscn" id="1_7wxeb"]
+[ext_resource type="PackedScene" uid="uid://bdxjduova28d8" path="res://scenes/player/player.tscn" id="1_8cg7g"]
+[ext_resource type="Script" uid="uid://davqlx4c2v0on" path="res://scenes/player/player.gd" id="2_syyn5"]
+[ext_resource type="PackedScene" uid="uid://b2r6ihyqi3scx" path="res://assets/models/map/tree.glb" id="2_weoh1"]
+[ext_resource type="ArrayMesh" uid="uid://x3iqjjxr43w6" path="res://assets/models/map/tree.tres" id="3_8ivcm"]
+[ext_resource type="PackedScene" uid="uid://bibbjdp4jlkpo" path="res://assets/models/3D/FBX/chestA.fbx" id="4_ajgsl"]
+[ext_resource type="Texture2D" uid="uid://dphnlg6npvo8b" path="res://assets/models/3D/PNG/chestA.png" id="5_k6w2u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ndn3y"]
+size = Vector3(24, 1, 24)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ackv6"]
+size = Vector3(24, 1, 24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mavfg"]
+size = Vector3(4, 2, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3vg34"]
+size = Vector3(4, 2, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajgsl"]
+albedo_texture = ExtResource("5_k6w2u")
+texture_filter = 0
+
+[node name="Stage" type="Node3D" unique_id=717478600]
+
+[node name="World" type="Node3D" parent="." unique_id=907371991]
+
+[node name="Ground" type="MeshInstance3D" parent="World" unique_id=451317506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_ndn3y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Ground" unique_id=1411866592]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground/StaticBody3D" unique_id=1920058726]
+shape = SubResource("BoxShape3D_ackv6")
+
+[node name="Platform" type="MeshInstance3D" parent="World" unique_id=1272110584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, -2)
+mesh = SubResource("BoxMesh_mavfg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Platform" unique_id=1954115530]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Platform/StaticBody3D" unique_id=1486347633]
+shape = SubResource("BoxShape3D_3vg34")
+
+[node name="PalmTree" parent="World" unique_id=1871668650 instance=ExtResource("1_7wxeb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 0)
+
+[node name="tree" parent="World" unique_id=1070753300 instance=ExtResource("2_weoh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 4)
+mesh = ExtResource("3_8ivcm")
+
+[node name="chestA" parent="World" unique_id=566205310 instance=ExtResource("4_ajgsl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, -1.8167579)
+
+[node name="chestA" parent="World/chestA" index="0" unique_id=1765958718]
+surface_material_override/0 = SubResource("StandardMaterial3D_ajgsl")
+
+[node name="tree2" parent="World" unique_id=917814316 instance=ExtResource("2_weoh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 4)
+
+[node name="Player" parent="." unique_id=275412029 instance=ExtResource("1_8cg7g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 4)
+script = ExtResource("2_syyn5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=932857067]
+transform = Transform3D(0.81915206, 0.46984634, -0.32898995, 0, 0.57357645, 0.81915206, 0.57357645, -0.6710101, 0.46984634, 0, 0, 0)
+shadow_enabled = true
+
+[editable path="World/chestA"]

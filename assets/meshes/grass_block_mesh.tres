@@ -1,0 +1,24 @@
+[gd_resource type="ArrayMesh" format=4 uid="uid://do6p674srujw3"]
+
+[ext_resource type="Texture2D" uid="uid://cwjb74576wpyy" path="res://assets/meshes/textures/pixil-frame-1.png" id="1_xkdvf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wsip5"]
+specular_mode = 2
+albedo_texture = ExtResource("1_xkdvf")
+texture_filter = 0
+texture_repeat = false
+
+[resource]
+resource_name = "GrassBlock (top, side, bottom atlas)"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("q6qqPgAAAACrqqo+AAAAAKuqKj8AAAAAq6oqPwAAAACrqqo+AACAP6uqqj4AAIA/q6oqPwAAgD+rqio/AACAP6uqqj4AAAAAq6qqPgAAAACrqio/AAAAAKuqKj8AAAAAq6qqPgAAgD+rqqo+AACAP6uqKj8AAIA/q6oqPwAAgD+rqqo+AACAP6uqKj8AAAAAAAAAAAAAgD8AAIA/AAAAAKuqqj4AAAAAq6oqPwAAgD8AAAAAAAAAAAAAgD8AAIA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAACAAQAAgAGAAQAAQADAAUAAwAHAAUACAAKAAwACgAOAAwACQALAA0ACwAPAA0AEAASABQAEgAWABQAEQATABUAEwAXABUA"),
+"material": SubResource("StandardMaterial3D_wsip5"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AACAvwAAgD8AAIA/AACAPwAAgD8AAIC/AACAPwAAgD8AAIA/AACAvwAAgD8AAIC/AACAvwAAgL8AAIA/AACAPwAAgL8AAIC/AACAPwAAgL8AAIA/AACAvwAAgL8AAIC/AACAPwAAgD8AAIA/AACAvwAAgD8AAIC/AACAPwAAgD8AAIC/AACAvwAAgD8AAIA/AACAPwAAgL8AAIA/AACAvwAAgL8AAIC/AACAPwAAgL8AAIC/AACAvwAAgL8AAIA/AACAPwAAgD8AAIA/AACAvwAAgL8AAIA/AACAvwAAgD8AAIA/AACAPwAAgL8AAIA/AACAPwAAgD8AAIC/AACAvwAAgL8AAIC/AACAvwAAgD8AAIC/AACAPwAAgL8AAIC//3//f/7//7//////AAD/v/9//3/+//+//////wAA/7//f/9//v//v/////8AAP+//3//f/7//7//////AAD/v///AIAAAP7/AAAAgP9//7///wCAAAD+/wAAAID/f/+///8AgAAA/v8AAACA/3//v///AIAAAP7/AAAAgP9//78AgP//////vwCAAAD///+/AID//////78AgAAA////vwCA//////+/AIAAAP///78AgP//////vwCAAAD///+/")
+}]

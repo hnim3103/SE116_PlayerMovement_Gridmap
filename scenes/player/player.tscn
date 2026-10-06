@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bdxjduova28d8"]
+
+[ext_resource type="Script" uid="uid://clw03abs2j8ss" path="res://scripts/base_character.gd" id="1_8afob"]
+[ext_resource type="Texture2D" uid="uid://cwkkl08airpta" path="res://assets/foxy/fox_hat/foxy_hat_sprite_sheet.png" id="2_dovo2"]
+[ext_resource type="AnimationLibrary" uid="uid://bxn6hb7ky7gfi" path="res://scenes/player/player_anims.tres" id="3_gmlin"]
+[ext_resource type="Script" uid="uid://bytwgpxy1wbb3" path="res://scenes/player/states/idle.gd" id="4_0owmy"]
+[ext_resource type="Script" uid="uid://kx1fr4p8vy0f" path="res://scenes/player/states/run.gd" id="5_qek5x"]
+[ext_resource type="Script" uid="uid://dpcr7kcoh7xdh" path="res://scenes/player/states/jump.gd" id="6_5gtgg"]
+[ext_resource type="Script" uid="uid://cqn00yvsknulb" path="res://scenes/player/states/fall.gd" id="7_h17s1"]
+[ext_resource type="Script" uid="uid://dmlmrsgysg8d5" path="res://scenes/player/states/wall_cling.gd" id="8_qek5x"]
+[ext_resource type="Script" uid="uid://jfyji5h52lsd" path="res://scenes/player/states/wall_jump.gd" id="9_5gtgg"]
+[ext_resource type="Script" uid="uid://cfh7nedcxsapr" path="res://scenes/player/states/dash.gd" id="10_h17s1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gmlin"]
+
+[node name="Player" type="CharacterBody3D" unique_id=275412029]
+script = ExtResource("1_8afob")
+metadata/_custom_type_script = "uid://clw03abs2j8ss"
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=37757005]
+transform = Transform3D(1, 0, 0, 0, 1.45, 0, 0, 0, 1, 0, 0, 0)
+offset = Vector2(0, 22)
+pixel_size = 0.0625
+shaded = true
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_dovo2")
+hframes = 4
+vframes = 15
+frame = 16
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=131500248]
+libraries/ = ExtResource("3_gmlin")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=666483326]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_gmlin")
+
+[node name="States" type="Node" parent="." unique_id=2141480563]
+
+[node name="Idle" type="Node" parent="States" unique_id=318614387]
+script = ExtResource("4_0owmy")
+
+[node name="Run" type="Node" parent="States" unique_id=1392385655]
+script = ExtResource("5_qek5x")
+
+[node name="Jump" type="Node" parent="States" unique_id=1962900272]
+script = ExtResource("6_5gtgg")
+
+[node name="Fall" type="Node" parent="States" unique_id=1509717270]
+script = ExtResource("7_h17s1")
+
+[node name="WallCling" type="Node" parent="States" unique_id=1330804706]
+script = ExtResource("8_qek5x")
+
+[node name="WallJump" type="Node" parent="States" unique_id=1465091716]
+script = ExtResource("9_5gtgg")
+
+[node name="Dash" type="Node" parent="States" unique_id=1295733390]
+script = ExtResource("10_h17s1")
